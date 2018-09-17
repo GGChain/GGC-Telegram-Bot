@@ -14,6 +14,11 @@ const bot = new TelegramBot(token, {polling: true});
   let chatId = msg.chat.id;
   var command = msg.text.toString().toLowerCase();
   var args ='';
+  //BBD
+  let jsonSql = require('json-sql');
+  const promise = require('bluebird');
+  const SqlConnection = require("tedious").Connection;
+  const Request = require("tedious").Request;
   try {
     if (command === '/register') { // because its imposible to create a file starting with '/'
       command = 'register';
