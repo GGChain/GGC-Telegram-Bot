@@ -23,32 +23,6 @@ const bot = new TelegramBot(token, {polling: true});
     database: "BBDD"
   });
 
-  con.connect(function(err) {
-    if (err) throw err;
-    // con.query("SELECT user_login, user_email FROM wp_users", function (err, result, fields) {
-    //   if (err) throw err;
-    //   console.log('Usuario Base de Datos:');
-    //
-    //   for (var i = 0; i < result.length; i++) {
-    //
-    //     console.log(result[i].user_login+' // '+result[i].user_email);
-    //   }
-    //
-    //   con.end();
-    // });
-    ///////////////////
-    //Borrar
-    // if (err) throw err;
-    //   var sql = "DELETE FROM telegram_users WHERE Nombre = 'Admin'";
-    //   con.query(sql, function (err, result) {
-    //     if (err) throw err;
-    //     console.log("Number of records deleted: " + result.affectedRows);
-    //   });
-
-  });
-
-
-///BBDD
   try {
     if (command === '/register') { // because its imposible to create a file starting with '/'
       command = 'register';
@@ -56,13 +30,13 @@ const bot = new TelegramBot(token, {polling: true});
     }
     if (command.includes('/email')) {
       let commandFile = require(`./comandos/email.js`);
-      commandFile.run(bot, msg ,chatId,args);
+      commandFile.run(bot, msg ,chatId,args,con);
     }else if (command.includes('/discord')){
       let commandFile = require(`./comandos/addDiscord.js`);
-      commandFile.run(bot, msg ,chatId,args);
+      commandFile.run(bot, msg ,chatId,args,con);
     }else {
       let commandFile = require(`./comandos/${command}.js`);
-      commandFile.run(bot, msg ,chatId,args);
+      commandFile.run(bot, msg ,chatId,args,con);
     }
 
   }catch (err) {

@@ -1,3 +1,3 @@
 exports.run = (bot, msg, chatId) => {
-        bot.sendMessage(msg.from.id, 'www.gglobby.io');    
+        bot.sendMessage(msg.from.id, 'www.gglobby.com');
 }

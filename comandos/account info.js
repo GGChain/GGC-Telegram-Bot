@@ -9,7 +9,7 @@ exports.run = (bot, msg, chatId,args) => {
       let month = reg[pos].Month;
       let year = reg[pos].Year;
 
-      bot.sendMessage(msg.from.id,'Name:  '+reg[pos].Name + '\nUsername: '+reg[pos].Username + '\nEmail: '+reg[pos].Email + '\nDiscord: '+reg[pos].Discord +'\nDate of register: '+`${day}/${month}/${year}`+'\nBalance: '+ (reg[pos].Balance.toString()) +` GGC`);
+      bot.sendMessage(msg.from.id,'*Name:*  '+reg[pos].Name + '\n*Username* '+reg[pos].Username + '\n*Email:* '+reg[pos].Email + '\n*Discord:* '+reg[pos].Discord +'\n*Date of register:* '+`${day}/${month}/${year}`+'\n*Balance:* '+ (reg[pos].Balance.toString()) +` GGC`,{parse_mode: "Markdown"});
     }else {
       bot.sendMessage(msg.from.id,'You are not in our Data Base, please, go and create an account.')
     }
