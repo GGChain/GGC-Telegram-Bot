@@ -15,13 +15,7 @@ const bot = new TelegramBot(token, {polling: true});
   let chatId = msg.chat.id;
   var command = msg.text.toString().toLowerCase();
   var args ='';
-//BBDD
-  var con = mysql.createConnection({
-    host: "host",
-    user: "user",
-    password: "psw",
-    database: "BBDD"
-  });
+
 
   try {
     if (command === '/register') { // because its imposible to create a file starting with '/'
@@ -30,13 +24,13 @@ const bot = new TelegramBot(token, {polling: true});
     }
     if (command.includes('/email')) {
       let commandFile = require(`./comandos/email.js`);
-      commandFile.run(bot, msg ,chatId,args,con);
+      commandFile.run(bot, msg ,chatId,args,mysql);
     }else if (command.includes('/discord')){
       let commandFile = require(`./comandos/addDiscord.js`);
-      commandFile.run(bot, msg ,chatId,args,con);
+      commandFile.run(bot, msg ,chatId,args,mysql);
     }else {
       let commandFile = require(`./comandos/${command}.js`);
-      commandFile.run(bot, msg ,chatId,args,con);
+      commandFile.run(bot, msg ,chatId,args,mysql);
     }
 
   }catch (err) {
