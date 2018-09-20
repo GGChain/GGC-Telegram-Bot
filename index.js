@@ -37,7 +37,7 @@ const bot = new TelegramBot(token, {polling: true});
 
 bot.onText(/\/start/, (msg) => {
 
-bot.sendMessage(msg.chat.id, "Welcome", {
+bot.sendMessage(msg.from.id, "Welcome", {
     "reply_markup": {
         "keyboard": [["Website", "Twitter"],   ["News", "Bitcointalk"], ["Register"]]
         }
