@@ -9,10 +9,14 @@ exports.run = (bot, msg, chatId,args) => {
       let month = reg[pos].Month;
       let year = reg[pos].Year;
 
-      bot.sendMessage(msg.from.id,'*Name:*  '+reg[pos].Name + '\n*Username* '+reg[pos].Username + '\n*Email:* '+reg[pos].Email + '\n*Discord:* '+reg[pos].Discord +'\n*Date of register:* '+`${day}/${month}/${year}`+'\n*Balance:* '+ (reg[pos].Balance.toString()) +` GGC`,{parse_mode: "Markdown"});
+      bot.sendMessage(msg.from.id,'*Name:*  '+reg[pos].Name + '\n*Username:* '+reg[pos].Username + '\n*Email:* '+reg[pos].Email + '\n*Discord:* '+reg[pos].Discord +'\n*Date of register:* '+`${day}/${month}/${year}`+'\n*Balance:* '+ (reg[pos].Balance.toString()) +` GGC`,{
+	       parse_mode: "markdown"
+       });
     }else {
       bot.sendMessage(msg.from.id,'You are not in our Data Base, please, go and create an account.')
     }
+  }else {
+      bot.sendMessage(msg.from.id,'You are not in our Data Base, please, go and create an account.')
   }
 
   function checkUser(user) {

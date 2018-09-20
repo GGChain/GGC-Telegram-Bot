@@ -11,6 +11,7 @@ exports.run = (bot, msg, chatId,args) => {
       if (reg[pos].Discord === '') {
         reg[pos].Discord = discord;
         localStorage.setItem('reg',JSON.stringify(reg));
+        localStorage.setItem('count',localStorage.getItem('count')+1);
         bot.sendMessage(msg.from.id,'You have created your account successfully.')
       }else {
           bot.sendMessage(msg.from.id,'You have already a Discord username.')
