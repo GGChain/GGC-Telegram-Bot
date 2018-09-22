@@ -14,7 +14,7 @@ const bot = new TelegramBot(token, {polling: true});
   let chatId = msg.chat.id;
   var command = msg.text.toString().toLowerCase();
   var args ='';
-
+console.log(msg.from.id);
   try {
     if (command === '/register') { // because its imposible to create a file starting with '/'
       command = 'register';
